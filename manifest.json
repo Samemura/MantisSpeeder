@@ -3,10 +3,10 @@
 
   "name": "Mantis speeder",
   "description": "Using Mantis tracker with speed",
-  "version": "1.0",
+  "version": "1.1",
 
   "permissions": [
-     "http://*/mantis/view.php*", "tabs"
+     "http://*/*mantis*/view.php*", "tabs"
   ],
 
   "background": {
@@ -20,7 +20,7 @@
   
   "content_scripts": [
     {
-      "matches": ["http://*/mantis/*"],
+      "matches": ["http://*/*mantis*/view.php*"],
       "js": ["MantisContent.js"]
     }]
 }

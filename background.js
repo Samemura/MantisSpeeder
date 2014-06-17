@@ -39,3 +39,7 @@ chrome.extension.onConnect.addListener(function(port) {
         }
   });
 });
+
+chrome.tabs.onSelectionChanged.addListener(function(tabid){
+	chrome.tabs.sendRequest(tabid, {status: "changed"}, function(response) {});
+});
