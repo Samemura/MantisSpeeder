@@ -9,7 +9,7 @@ Chromeの拡張機能ページを開く。
 	Alt + Q 
 
 
-For editing .md file, refer to <http://codechord.com/2012/01/readme-markdown/>
+For editing .md file, refer to <http://codechord.com/2012/01/readme-markdown/>  
 Add a git remote in the Cloud9 console. Should look like this (replace the git url with your repo url): 
 git remote add origin git@github.com:C9Support/testPush.git 
 Add files and commit them:
