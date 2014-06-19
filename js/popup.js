@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById("btnAssign").addEventListener('click', btnAssign_clickHandler);
 	document.getElementById("btnChangeStatus").addEventListener('click', btnChangeStatus_clickHandler);
 	document.getElementById("btnAddNote").addEventListener('click', btnAddNote_clickHandler);
+	
+	document.getElementById("btnAssign").focus();
 
 	initialize();
 });
