@@ -3,17 +3,17 @@ MantisSpeeder
 [Link][Mantis]
 
 ### How to use ?
-![aaa][image_use_mantis_spder]
+![](/readme/UseMantisSpeeder.png)
 
 ### Installation
 1. Download Source zip and unzip to  
 `C:\Users\[UserName]\AppData\Local\Google\Chrome\User Data\Default\Extensions`
 
 1. open Chrome extension page
-[image_open_ext][]
+![](/readme/OpenChromeExtension.png)
 
 1. set to Developper mode and install unpackaged extension (choose the folder have unzipped files)
-[image_inst_unpack][]
+![](/readme/InstallUnpackagedExtension.png)
 
 1. インストール後、拡張機能ページから、キーボードショートカットを設定。
 	Alt + Q 
@@ -33,6 +33,3 @@ MantisSpeeder
 
 
 [Mantis]: http://10.10.238.207/mantis/view_all_bug_page.php "Mantis"
-[image_open_ext] /readme/OpenChromeExtension.png
-[image_inst_unpack] /readme/InstallUnpackagedExtension.png
-[image_use_mantis_spder] /readme/UseMantisSpeeder.png
