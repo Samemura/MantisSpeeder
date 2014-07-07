@@ -1,6 +1,6 @@
 MantisSpeeder
 =============
-[Link][Mantis]
+[Link](http://10.10.238.207/mantis/view_all_bug_page.php)
 
 ### How to use ?
 ![](/readme/UseMantisSpeeder.png)
@@ -20,3 +20,4 @@ MantisSpeeder
 
 
 ### For editing .md file, refer to <http://codechord.com/2012/01/readme-markdown/>  
+
