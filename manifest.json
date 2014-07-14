@@ -3,10 +3,10 @@
 
   "name": "Mantis speeder",
   "description": "Using Mantis tracker with speed",
-  "version": "1.3",
+  "version": "2.0",
 
   "permissions": [
-     "tabs", "http://*/*mantis*/*"
+     "tabs"
   ],
 
   "icons": {
@@ -35,12 +35,12 @@
 
   "content_scripts": [
     {
-      "matches": ["http://*/*mantis*/view.php*"],
+      "matches": ["http://*/*/view.php*"],
       "js": ["js/content_view_issue.js"],
       "run_at": "document_start"
     },
     {
-      "matches": ["http://*/*mantis*/bug_update_advanced_page.php*"],
+      "matches": ["http://*/*/bug_update_advanced_page.php*"],
       "js": ["js/content_update_advanced.js"]
     }
   ],

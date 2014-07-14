@@ -8,7 +8,7 @@ function initialize(){
 	iframe_tool_bar.style.height = tool_bar_height + 'px';
 
 	iframe_mantis = document.createElement('iframe');
-	iframe_mantis.src = document.location;
+	iframe_mantis.src = document.location + "&output=embed";
 	iframe_mantis.style.width = '99%';
 	iframe_mantis.style.height = (document.documentElement.clientHeight - tool_bar_height - 30) + 'px';
 
@@ -36,15 +36,18 @@ function addNote(bugid, note){
 }
 
 function getBugId(document){
-	return document.getElementsByName("bug_id")[1].value;
+	var n = document.getElementsByName("bug_id")[1];
+	return n ? n.value : "";
 }
 
 function getHandlerSelectionHtml(document){
-	return document.getElementsByName("handler_id")[0].innerHTML;
+	var n = document.getElementsByName("handler_id")[0];
+	return n ? n.innerHTML : "";
 }
 
 function getNewStatusSelectionHtml(document){
-	return document.getElementsByName("new_status")[0].innerHTML;
+	var n = document.getElementsByName("new_status")[0];
+	return n ? n.innerHTML : "";
 }
 
 function updateParameter(){
