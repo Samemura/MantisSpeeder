@@ -1,51 +1,33 @@
-var tabCurr, urlMantis, idBug, htmlAssigneeSelection, htmlStatusSelection, strNote;
-strNote = "";
-
-function showUpdateIssuePage(){
-	chrome.tabs.update(null, {url: urlMantis + "bug_update_advanced_page.php?bug_id=" + idBug}, null);
-}
-function assignTo(assignee){
-	chrome.tabs.update(null, {url: urlMantis + "bug_assign.php?bug_id=" + idBug + "&handler_id=" + assignee}, null);
-}
-function changeStatusTo(status){
-	chrome.tabs.update(null, {url: urlMantis + "bug_update.php?bug_id=" + idBug + "&status=" + status}, null);
-}
-function addNote(note){
-	chrome.tabs.update(null, {url: urlMantis + "bugnote_add.php?bug_id=" + idBug + "&bugnote_text=" + note}, null);
-	strNote = note;
-}
-
-
-function initialize(url, id, assignee, status){
-	
-	urlMantis = url.substring(0, url.lastIndexOf("/") + 1);
-  	idBug = id;
-	htmlAssigneeSelection = assignee;
-	htmlStatusSelection = status;
-	
-	var pagePopup = chrome.extension.getViews({type:"popup"})[0];
-	if (pagePopup != null){
-		pagePopup.initialize();
-	}
-}
+var strNote="";
 
 // event handller ************************************************************************
-chrome.extension.onConnect.addListener(function(port) {
-  console.assert(port.name == "content_background");
-  
-  port.onMessage.addListener(function(msg) {
-        if(msg.status == "loaded"){
-			initialize(msg.url, msg.bug_id, msg.assignee_selection_html, msg.status_selection_html);
-        }
-  });
-});
-
-chrome.tabs.onSelectionChanged.addListener(function(tabid){
-	chrome.tabs.sendRequest(tabid, {status: "changed"}, function(response) {});
-});
-
 chrome.commands.onCommand.addListener(function(command) {
-    if(command == "show_update"){
-	    showUpdateIssuePage();
+    switch(command){
+	case "update_issue":
+		console.log("command, update issue");
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {request: "update_issue"});
+		});
+		break;
+	case "jump_to_note":
+		console.log("command, jump to note");
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {request: "jump_to_note"});
+		});
+		break;
+	}
+});
+
+chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+    if (sender.tab){	// from extention
+	    switch(msg.request){
+		case "remember_note":
+			strNote = msg.note;
+			break;
+		case "tell_me_note":
+			console.log("note: " + strNote);
+			sendResponse({note: strNote});
+			break;
+	    }
 	}
 });
