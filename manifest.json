@@ -36,7 +36,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*mantis*/view.php*"],
-      "js": ["js/MantisContent.js"],
+      "js": ["js/content_view_issue.js"],
       "run_at": "document_start"
     },
     {
