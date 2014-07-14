@@ -6,8 +6,7 @@ MantisSpeeder
 ![](/readme/UseMantisSpeeder.png)
 
 ### Installation
-1. Download Source zip and unzip to  
-`C:\Users\[UserName]\AppData\Local\Google\Chrome\User Data\Default\Extensions`
+1. Download Source zip and unzip, then execute "copyToProgramFiles.bat"
 
 1. open Chrome extension page
 ![](/readme/OpenChromeExtension.png)
@@ -17,7 +16,3 @@ MantisSpeeder
 
 1. インストール後、拡張機能ページから、キーボードショートカットを設定。
 	Alt + Q 
-
-
-### For editing .md file, refer to <http://codechord.com/2012/01/readme-markdown/>  
-
