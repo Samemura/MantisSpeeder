@@ -16,3 +16,12 @@ MantisSpeeder
 
 1. インストール後、拡張機能ページから、キーボードショートカットを設定。
 	Alt + Q 
+
+
+### Update to new version
+1. Download Source zip and unzip, then execute "copyToProgramFiles.bat"
+
+1. open Chrome extension page
+![](/readme/OpenChromeExtension.png)
+
+1. reload Extension
