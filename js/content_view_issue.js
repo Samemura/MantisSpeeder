@@ -8,7 +8,7 @@ function initialize(){
 	iframe_tool_bar.style.height = tool_bar_height + 'px';
 
 	iframe_mantis = document.createElement('iframe');
-	iframe_mantis.src = document.location + "&output=embed";
+	iframe_mantis.src = document.location;
 	iframe_mantis.style.width = '99%';
 	iframe_mantis.style.height = (document.documentElement.clientHeight - tool_bar_height - 30) + 'px';
 
@@ -73,6 +73,11 @@ function jumpToNote(doc){
 	doc.location = doc.location + "#bugnotes";
 }
 
+function dispatchATag(event){
+	event.preventDefault();
+    window.location = this.href;
+}
+
 // event handler **********************************************************
 window.addEventListener("message", function(event) {
 	if (event.source == iframe_tool_bar.contentWindow){
@@ -80,9 +85,18 @@ window.addEventListener("message", function(event) {
 		switch (event.data.type) {
 		case "loaded":
 		    console.log("Content script received: tool bar loaded");
-			iframe_mantis.contentWindow.addEventListener('DOMContentLoaded', function(){
+			iframe_mantis.contentWindow.addEventListener('load', function(){
 				updateParameter();
 				scrollToIssueInfo(iframe_mantis.contentDocument);
+				
+				// prevent link in Iframe.
+				var Anchors = iframe_mantis.contentDocument.getElementsByTagName("a");
+				for (var i = 0; i < Anchors.length ; i++) {
+					if (Anchors[i].outerHTML.indexOf("onclick") < 0){
+						Anchors[i].addEventListener("click", dispatchATag, false);
+					}
+				}
+
 			});
 			break;
 		
