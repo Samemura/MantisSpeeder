@@ -22,6 +22,5 @@ MantisSpeeder
 1. Download Source zip and unzip, then execute "copyToProgramFiles.bat"
 
 1. open Chrome extension page
-![](/readme/OpenChromeExtension.png)
 
 1. reload Extension
